@@ -1,0 +1,38 @@
+flowchart TD
+    PESSOA["PESSOA"] --- R{"PODE SER"}
+
+    R --- JURIDICA["JURIDICA"]
+    R --- FISICA["FISICA"]
+    
+
+    JURIDICA --- |1| R1{"PODE SER"}
+    R1 --- |N| MORADOR["MORADOR"]
+
+    FISICA --- |1| R2{"PODE SER"}
+    
+    R2 --- |N| FUNCIONARIO["FUNCIONARIO"]
+    R2 --- |N| MORADOR
+    R2 --- |N| VISITANTE["VISITANTE"]
+    
+
+    VISITANTE --- |1| R7{"PODE FAZER"}
+    R7 --- |1| VISITA["VISITA"]
+
+    VISITA --- |1| R8{"DIRECIONADA"}
+    R8 --- |1| APARTAMENTO
+
+
+    FUNCIONARIO --- |1| R3{"SOLICITA"}
+    R3 --- |1| SERVICO["SERVICO"]
+    MORADOR --- |1| R3
+
+    SERVICO --- |1| R4{"DIRECIONADO"}
+    R4 --- |1| APARTAMENTO["APARTAMENTO"]
+    R4 --- |1| EDIFICIO["EDIFICIO"]
+    APARTAMENTO --- |1| R6{"PODE TER"}
+    R6 --- |1| VEICULO["VEICULO"]
+
+    EDIFICIO --- |1| R5{"POSSUI"}
+    R5 --- |1| BLOCOS["BLOCOS"]
+    R5 --- |1| APARTAMENTO
+
