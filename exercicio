@@ -1,7 +1,6 @@
 erDiagram
     CLIENTE ||--|{ TELEFONES_CLIENTES : possui
     CLIENTE ||--|{ PEDIDOS : faz
-    PEDIDOS ||--|{ PRODUTOS : tem
     PEDIDOS ||--|| PAGAMENTO : realiza
 
     CLIENTE { str CPF PK }
@@ -25,7 +24,15 @@ erDiagram
     PEDIDOS {int numero PK}
     PEDIDOS {date data}
     PEDIDOS {time hora}
-    PEDIDOS {int  quantidade}
+
+    PEDIDOS ||--|{ ITEM_PEDIDO : possui
+    PRODUTOS ||--|{ ITEM_PEDIDO : pertence
+
+    ITEM_PEDIDO {
+        int numero PK, FK
+        int id PK, FK
+        int quantidade
+    }
 
     PAGAMENTO {int id PK}
     PAGAMENTO {int numero FK}
