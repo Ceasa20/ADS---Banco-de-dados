@@ -1,0 +1,54 @@
+erDiagram
+    CLIENTE ||--|{ TELEFONES_CLIENTES : possui
+    CLIENTE ||--|{ PEDIDOS : faz
+    PEDIDOS ||--|{ PRODUTOS : tem
+    PEDIDOS ||--|| PAGAMENTO : realiza
+
+    CLIENTE { str CPF PK }
+    CLIENTE { str nome }
+    CLIENTE { str rua }
+    CLIENTE { str bairro }
+    CLIENTE { str municipio }
+    CLIENTE { str estado }
+    CLIENTE { str e-mail }
+    TELEFONES_CLIENTES { str CPF FK }
+    TELEFONES_CLIENTES { str telefone }
+
+    PRODUTOS {int id PK}
+    PRODUTOS {str nome}
+    PRODUTOS {str descrição}
+    PRODUTOS {double preço}
+    PRODUTOS {str imagem}
+
+    PEDIDOS { str CPF FK }
+    PEDIDOS {str CNPJ FK}
+    PEDIDOS {int numero PK}
+    PEDIDOS {date data}
+    PEDIDOS {time hora}
+    PEDIDOS {int  quantidade}
+
+    PAGAMENTO {int id PK}
+    PAGAMENTO {int numero FK}
+    PAGAMENTO {date data}
+    PAGAMENTO {float hora}
+    PAGAMENTO {double valor}
+    PAGAMENTO {int cartao}
+
+    FORNECEDOR||--|{ TELEFONES_FORNECEDORES : possui
+    FORNECEDOR||--|{ PEDIDOS : atende
+    FORNECEDOR { str CNPJ PK }
+    FORNECEDOR { str nome }
+    FORNECEDOR { str rua }
+    FORNECEDOR { str bairro }
+    FORNECEDOR { str municipio }
+    FORNECEDOR { str estado }
+    FORNECEDOR { str e-mail }
+    TELEFONES_FORNECEDORES { str CNPJ FK }
+    TELEFONES_FORNECEDORES { int telefone }
+
+
+
+
+    
+
+    
