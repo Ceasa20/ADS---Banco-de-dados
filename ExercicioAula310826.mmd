@@ -1,0 +1,23 @@
+flowchart TD
+    FILIAL["FILIAL"] --- |1|R{"lota"}
+    FUNCIONARIO["FUNCIONARIO"] --- |1|R1{"gerencia"}
+    FILIAL --- |1|R3{"mantém"}
+    VEICULO["VEICULO"]
+    CATEGORIA["CATEGORIA"] --- |1|R4{"classifica"}
+    CLIENTE["CLIENTE"] --- |1|R5{"realiza"}
+    FUNCIONARIO --- |1|R6{"registra"}
+    LOCACAO["LOCACAO"] --- |1|R7{"inclui"}
+    LOCACAO --- R8{"gera"}
+
+    R --- |N|FUNCIONARIO
+    R1 --- |1|FILIAL
+    R3 --- |N|VEICULO
+    R4 ---|N|VEICULO
+    R5 --- |N|LOCACAO
+    R6 --- |N|LOCACAO
+    R7 --- |1|VEICULO
+    R8 --- PAGAMENTO["PAGAMENTO"]
+
+    
+    
+
