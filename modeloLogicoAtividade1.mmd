@@ -1,0 +1,68 @@
+erDiagram
+FILIAL ||--|{ FUNCIONARIO:lota
+FUNCIONARIO ||--o{ FILIAL:gerencia
+FILIAL||--|{ VEICULO:mantem
+CATEGORIA||--|{ VEICULO:classifica
+CLIENTE||--o{ LOCACAO:realiza
+FUNCIONARIO||--o{ LOCACAO:registra
+LOCACAO o{--|{ VEICULO:inclui
+LOCACAO ||--|{ PAGAMENTO:gera
+ITEM_LOCACAO o{--||LOCACAO:contido
+LOCACAO||--|{ITEM_LOCACAO:contem
+
+FILIAL{
+    string placa PK
+    str nomecontem
+    str cidade
+    str UF
+    str telefone
+}
+FUNCIONARIO{
+    int matricula PK
+    int id_filial FK
+    str nome
+    str cargo
+    float salario
+    date data_admissao
+}
+CLIENTE{
+    int id_cliente PK
+    str nome
+    str cpf
+    str telefone
+    str email
+}
+CATEGORIA{
+    int id_categoria PK
+    str nome
+    str descricao
+}
+VEICULO{
+    str placa PK
+    int id_categoria FK
+    str modelo
+    str marca
+    int ano
+    str cor
+    float valor_diaria
+}
+LOCACAO{
+    int id_locacao PK
+    str placa FK
+    date data_retirada
+    date data_prevista
+    date data_devolucao
+    str status
+}
+PAGAMENTO{
+    int id_pagamento PK
+    float valor
+    str forma_pagamento
+    date data_pagamento
+    int numero_parcela
+}
+ITEM_LOCACAO{
+    int id_locacao PK,FK
+    str placa PK,FK
+    float valor_diaria
+}

@@ -1,0 +1,25 @@
+flowchart TD
+FILIAL["FILIAL"] --> |1,1|A{lota}
+A--> |1,N|FUNCIONARIO["FUNCIONARIO"]
+FUNCIONARIO --> |1,1|B{gerencia}
+B--> |0,1|FILIAL
+FILIAL--> |1,1|C{mantém}
+C--> |1,N|VEICULO
+VEICULO["VEICULO"]
+CATEGORIA["CATEGORIA"] -->|1,1|D{classifica}
+D--> |1,N|VEICULO
+CLIENTE["CLIENTE"] -->|1,1|E{realiza}
+E--> |0,N|LOCACAO["LOCACAO"]
+FUNCIONARIO -->|1,1|F{registra}
+F--> |0,N|LOCACAO
+subgraph ITEM_LOCACAO["ITEM_LOCACAO"]
+        G{inclui}
+    end
+LOCACAO --> |1,N| G
+G --> |1,1| VEICULO["VEICULO"]
+PAGAMENTO["PAGAMENTO"]
+LOCACAO--> |1,1|I{gera}
+I--> |1,N|PAGAMENTO
+
+
+
